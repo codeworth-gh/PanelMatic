@@ -30,7 +30,7 @@ public class SubPanelExample extends JPanel {
 	public SubPanelExample() {
 		createComponents();
 		PanelMatic.begin( this )
-			.addHeader(HeaderLevel.H1, new TestUtils.RandIcon(20), "Qoute Generator")
+			.addHeader(HeaderLevel.H1, new TestUtils.RandIcon(20), "Quote Generator")
 			.add( "Source", PanelMatic.begin() // second builder
 								.add(chkMonty)
 								.add(chkEmo)
@@ -52,7 +52,7 @@ public class SubPanelExample extends JPanel {
 		chkSimpsons = new JCheckBox("The Simpsons");
 		chkLorem = new JCheckBox("Lorem Ipsum");
 		cmbType = new JComboBox(new Object[]{"Text","HTML","PDF","AFP"} );
-		btnGo = new JButton("Generate Qoute");
+		btnGo = new JButton("Generate Quote");
 	}
 
 	public static void main(String[] args) {

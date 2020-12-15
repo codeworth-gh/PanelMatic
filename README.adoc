@@ -13,21 +13,73 @@ endif::[]
 
 **An intuitive library for creating complex https://docs.oracle.com/javase/tutorial/uiswing/index.html[Java Swing] layouts.**
 
-image::DOCS/sketch-code-gui.png[alt="layout to code to GUI process"]
+image::DOCS/sketch-code-gui.png[alt="layout to code to GUI process", align="center"]
 
 == Overview
 
-VERY SHOT DESC.
+PanelMatic is a mature Swing helper library, created to allow easy creation of complex, high-quality layouts. A panels can be created using a single expression, whose structure directly relates to the way said panel looks.
 
-Reference to blog post on mbarsinai.com
+PanelMatic It is highly customizable, supports right-to-left layouts, and provides an easy way of adding uniform listeners to panel components. The latter is useful, e.g., when one wants any change in a set of text fields to enable a "save" button.
 
-REFERENCE TO THE EXAMPLES DIR
+[NOTE]
+A PanelMatic intro is available HERE __blogpost at mbarsinai.com coming soon__
 
-IMAGES
+[TIP]
+Many panel examples are available at the link:src/test/java/io/codeworth/panelmatic/examples[Examples directory] at the project's tests.
+
+=== Sample Layouts and Code
+
+.A simple login form
+[link=DOCS/login-form.png]
+image::DOCS/login-form.png[align="center", 400]
+
+.A slightly more complex user profile panel
+[link=DOCS/simple-user-data.png]
+image::DOCS/simple-user-data.png[align="center", 400]
+
+.PanelMatic panel used with Swing's `BorderLayout`
+[link=DOCS/with-another-layout.png]
+image::DOCS/with-another-layout.png[align="center", 400]
+
+.Nesting panels by nesting builders
+[link=DOCS/combined-builders.png]
+image::DOCS/combined-builders.png[align="center", 400]
+
+
+=== Important Classes
+
+The below diagram suggests which classes are more important for client code, and which could be safely ignored.
+
+image::DOCS/principle_class_diagram.png[align="center"]
+
+=== Single Expression Panels
+
+The following examples show how PanelMatic's fluent API allows creation of a panel using a single expression.
+
+[source, java]
+----
+System.out.println("A panel with two JLabels would "
+				+ "have a preferred height of "
+				+ PanelMatic.begin()
+					.add( new JLabel("Label 1"))
+					.add( new JLabel("Label 2"))
+					.get()
+					.getPreferredSize().height
+			+ " pixels.");
+----
+
+output:
+
+----
+A panel with two JLabels would have a preferred height of 40 pixels.
+----
+
 
 == Using PaneMatic in a Project
 
 === From Maven Central
+
+__Coming Soon__
 
 * Maven
 
@@ -43,3 +95,4 @@ IMAGES
 
 === 2020-12
 * Initial https://maven.apache.org/[Maven]-based release, based on original release (which was based on https://ant.apache.org[Ant] and subversion, and was managed on Kenai.com).
+* Updated in-repo documentation.
