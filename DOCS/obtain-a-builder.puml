@@ -1,0 +1,24 @@
+@startuml
+participant Client as c
+participant PanelMatic
+participant BuilderPool
+participant "<b>b:PanelBuilder<b>" as b #BBCCFF
+participant "P.B.ComponentFactory" as cf
+
+== Obtaining a Builder ==
+c -> PanelMatic: begin( a,b,c )
+PanelMatic -> BuilderPool: get()
+note right
+	If there are no free
+	builders, the BuilderFactory 
+	will create one
+end note
+BuilderPool -> PanelMatic: b:PanelBuilder
+
+PanelMatic -> b: begin( a,b,c )
+b->cf : getContainer()
+cf->b : container
+
+PanelMatic -> c: b
+
+@enduml

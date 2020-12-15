@@ -1,0 +1,38 @@
+@startuml
+participant Client as c
+participant "<b>b:PanelBuilder<b>" as b #BBCCFF
+participant ResourceBundle as l10n
+participant "P.B.ComponentFactory" as cf
+
+== Building the panel ==
+c -> b:addHeader(... text ...)
+b -> l10n : text
+note right
+	If there is no ResourceBundle,
+	text is passed as-is
+end note
+l10n -> b : localized-text
+b -> cf : getHeader( localized-text )
+cf -> b : header component
+
+loop
+	c -> b : add( text, comp )
+	b -> l10n : text
+	l10n -> b : localized-text
+	b -> cf : getLabel( localized-text )
+	cf -> b : label
+	loop for each ComponentCustomizer
+		b -> Customizer : customize( comp )
+		Customizer-> b : comp'
+	end
+	note over b
+		The builder adds the label and component
+		to the panel being built.
+	end note
+	
+end
+
+c -> b : get()
+b -> c : The Panel
+
+@enduml
