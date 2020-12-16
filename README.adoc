@@ -21,13 +21,14 @@ PanelMatic is a mature Swing helper library, created to allow easy creation of c
 
 PanelMatic It is highly customizable, supports right-to-left layouts, and provides an easy way of adding uniform listeners to panel components. The latter is useful, e.g., when one wants any change in a set of text fields to enable a "save" button.
 
-[NOTE]
-A PanelMatic intro is available HERE __blogpost at mbarsinai.com coming soon__
-
 [TIP]
-Many panel examples are available at the link:src/test/java/io/codeworth/panelmatic/examples[Examples directory] at the project's tests.
+====
+A PanelMatic intro https://www.mbarsinai.com/blog/?p=146[is available at mbarsinai.com].
 
-=== Sample Layouts and Code
+Many panel examples are available at the link:src/test/java/io/codeworth/panelmatic/examples[Examples directory] at the project's tests.
+====
+
+=== Sample Layouts (and the code that creates them)
 
 .A simple login form
 [link=DOCS/login-form.png]
