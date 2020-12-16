@@ -1,10 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    
     <groupId>io.codeworth</groupId>
     <artifactId>PanelMatic</artifactId>
     <version>0.9.8</version>
     <packaging>jar</packaging>
+    <name>${project.groupId}:${project.artifactId}</name>
+    
+    <url>https://github.com/codeworth-gh/PanelMatic</url>
+    <description>
+        A Swing helper library, for simple creation of copmlex panel layouts.
+    </description>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+    
+        <scm>
+        <connection>scm:git:git://github.com/codeworth-gh/PanelMatic.git</connection>
+        <developerConnection>scm:git:ssh://github.com:codeworth-gh/PanelMatic.git</developerConnection>
+        <url>https://github.com/codeworth-gh/PanelMatic/tree/main</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>Michael Bar-Sinai</name>
+            <email>michael@codeworth.io</email>
+            <organization>CodeWorth.io</organization>
+            <organizationUrl>http://codeworth.io</organizationUrl>
+        </developer>
+    </developers>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
