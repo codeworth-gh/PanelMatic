@@ -32,6 +32,8 @@ public class Groupings {
 	}
 	
 	/**
+     * @param cmpItr An iterator over the components to be added.
+     * @return A JComponent with {@code comps} arranged along the line axis.
 	 * @see #lineGroup(javax.swing.JComponent[]) 
 	 */
 	public static JComponent lineGroup( Iterable<? extends JComponent> cmpItr ) {
@@ -62,8 +64,8 @@ public class Groupings {
 	}
 	
 	/**
-     * @param cmpItr 
-     * @return a component containing the passed components.
+     * @param cmpItr An iterator over the components to be added.
+     * @return A JComponent with {@code comps} arranged along the page axis.
 	 * @see #pageGroup(javax.swing.JComponent[]) 
 	 */
 	public static JComponent pageGroup( Iterable<? extends JComponent> cmpItr ) {

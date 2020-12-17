@@ -8,7 +8,6 @@ import java.util.ResourceBundle;
  * if you want to install application-wide {@link PanelMaticComponentCustomizer}s you
  * probably want to implement this class.
  * 
- * <br />
  * The default panel factory can be set by either:
  * <ul>
  *	<li>Calling {@link PanelMatic#setBuilderFactory(org.panelmatic.PanelBuilderFactory) }
@@ -31,7 +30,8 @@ public interface PanelBuilderFactory {
 	 * Sets the localization resource bundle for the to-be-created builders.
 	 * If {@code aBundle} is not {@code null}, the string parameter of
 	 * {@link PanelBuilder}'s various {@code addXXX} methods is interpreted 
-	 * as a key for a string in the passed bundle.<br />
+	 * as a key for a string in the passed bundle.
+     * 
 	 * If {@code aBundle} <em>is</em> {@code null}, that string parameter
 	 * is passed as-is.
 	 * 

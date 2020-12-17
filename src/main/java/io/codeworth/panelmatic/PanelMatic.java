@@ -9,40 +9,43 @@ import io.codeworth.panelmatic.impl.gridbagpanelbuilder.GbPanelBuilderFactory;
 
 /**
  * <p>
- * A "starter class" for the panelmatic system. Use the static method to start
+ * A "starter class" for the PanelMatic system. Use the static method to start
  * building new panels.
- * </p><p>
+ * <p>
  * Customizing the created panels can be done in a few ways:
+ * 
  * <ul>
  *	<li>Passing {@link PanelMaticComponentCustomizer}s to the
- *		{@link #begin(org.panelmatic.PanelMaticComponentCustomizer[])  } method</li>
+ *		{@link #begin(org.panelmatic.PanelMaticComponentCustomizer[])} method.
  * <li>Implementing a {@link PanelBuilderComponentFactory} and setting it as the
- *     component factory of the {@code panelBuilder}.</li>
+ *     component factory of the {@code panelBuilder}.
  *  <li>Implementing a {@link PanelBuilderFactory} and customizing the
  *      created {@link PanelBuilder}s when building them. Then telling {@code PanelMatic}
- *      to use the factory via {@link #setBuilderFactory(org.panelmatic.PanelBuilderFactory)}.</li>
+ *      to use the factory via {@link #setBuilderFactory(org.panelmatic.PanelBuilderFactory)}.
  *  <li>Implementing the {@link PanelBuilder} interface. This would also entail
- *      creating a factory.</li>
+ *      creating a factory.
  * </ul>
- * </p><p>
+ * <p>
  * This class holds a {@link PanelBuilderFactory}  and uses it to create
  * {@link PanelBuilder}s when needed. The panel builders are re-used via
  * a {@link BuilderPool}.
- * </p>
+ * 
  * <p>
  * As building panels can only take place in the Event Dispatch Thread,
  * no thread-safety precautions were taken.
- * </p>
- * <h3>Simple Usage Example</h3>
- * <code><pre>
+ * 
+ * <p>
+ * <em>Simple Usage Example</em>
+ * 
+ * <pre><code>
  *	JComponent panel = PanelMatic.begin()
- *								   .addHeader( HeaderLevel.H1, "User Details")
- *								   .add("Name", nameField )
- *								   .add("Address", addressField )
- * 								   .add( optInCheckBox )
- * 								   .add( memoTextArea, Modifiers.GROW )
- *								   .get();
- * </pre></code>
+ *                               .addHeader( HeaderLevel.H1, "User Details")
+ *                               .add("Name", nameField )
+ *                               .add("Address", addressField )
+ *                               .add( optInCheckBox )
+ *                               .add( memoTextArea, Modifiers.GROW )
+ *                               .get();
+ * </code></pre>
  * @author michaelbar-sinai
  */
 public class PanelMatic {
@@ -137,9 +140,13 @@ public class PanelMatic {
 	 * Sets the localization resource bundle for the builders.
 	 * If {@code aBundle} is not {@code null}, the string parameter of
 	 * {@link PanelBuilder}'s various {@code addXXX} methods is interpreted 
-	 * as a key for a string in the passed bundle.<br />
+	 * as a key for a string in the passed bundle.
+     * 
+     * <p>
 	 * If {@code aBundle} <em>is</em> {@code null}, that string parameter
-	 * is displayed as-is.<br />
+	 * is displayed as-is.
+     * 
+     * <p>
 	 * <em>Note:</em> PanelBuilders obtained before calling this method
 	 * will not be affected.
 	 * 
@@ -156,7 +163,8 @@ public class PanelMatic {
 	}
 	
 	/**
-	 * Sets the component orientation of the created panels.<br />
+	 * Sets the component orientation of the created panels.
+     * <p>
 	 * <em>Note:</em> PanelBuilders obtained before calling this method
 	 * will not be affected.
 	 * @param anOrientation the orientation of the built panels.

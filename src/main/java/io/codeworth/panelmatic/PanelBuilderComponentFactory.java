@@ -44,7 +44,7 @@ public interface PanelBuilderComponentFactory {
 	
 	/**
 	 * Sets the orientation of the to-be-created components.
-	 * @param aComponentOrientation 
+	 * @param aComponentOrientation The orientation of the components-to-be.
 	 */
 	public void setComponentOrientation(ComponentOrientation aComponentOrientation);
 

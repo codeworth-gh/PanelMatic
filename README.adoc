@@ -89,11 +89,11 @@ __Coming Soon__
 
 === As a .jar File
 
-
+* Download from the link:releases[releases] page. PanelMatic does not have any external dependencies.
 
 
 == Change Log
 
-=== 2020-12
+* JavaDocs updated.
 * Initial https://maven.apache.org/[Maven]-based release, based on original release (which was based on https://ant.apache.org[Ant] and subversion, and was managed on Kenai.com).
 * Updated in-repo documentation.

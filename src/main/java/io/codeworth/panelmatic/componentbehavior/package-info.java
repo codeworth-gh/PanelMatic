@@ -1,6 +1,6 @@
 /**
  * <p>
- * Holds the {@link org.panelmatic.componentbehavior.ComponentBehavior} and the classes involved in modifying it.
+ * Holds the {@link io.codeworth.panelmatic.componentbehavior.ComponentBehavior} and the classes involved in modifying it.
  * </p><p>
  * The behaviors use {@link java.awt.ComponentOrientation} semantics, which might
  * be slightly confusing at the beginning, but allow for localization. Instead of
