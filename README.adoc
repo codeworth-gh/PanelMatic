@@ -21,6 +21,11 @@ PanelMatic is a mature Swing helper library, created to allow easy creation of c
 
 PanelMatic It is highly customizable, supports right-to-left layouts, and provides an easy way of adding uniform listeners to panel components. The latter is useful, e.g., when one wants any change in a set of text fields to enable a "save" button.
 
+image:https://maven-badges.herokuapp.com/maven-central/io.codeworth/PanelMatic/badge.png?style-plastic?style-plastic[link=https://repo.maven.apache.org/maven2/io/codeworth/PanelMatic/"]
+
+image:https://img.shields.io/badge/javadocs-browse-green.svg[link="http://www.javadoc.io/doc/io.codeworth/PanelMatic/"]
+
+
 [TIP]
 ====
 A PanelMatic intro https://www.mbarsinai.com/blog/?p=146[is available at mbarsinai.com].
@@ -76,15 +81,34 @@ A panel with two JLabels would have a preferred height of 40 pixels.
 ----
 
 
-== Using PaneMatic in a Project
+== Using PanelMatic in a Project
 
 === From Maven Central
 
-__Coming Soon__
+==== Maven 
 
-* Maven
+Add the following to your `pom.xml`:
 
-* sbt
+[source, xml]
+----
+<dependencies>
+    <dependency>
+        <groupId>io.codeworth</groupId>
+        <artifactId>PanelMatic</artifactId>
+        <version>0.9.8</version>
+    </dependency>
+    ...
+</dependencies>
+----
+
+==== sbt
+
+Add the following to your `build.sbt`:
+
+[source, scala]
+----
+libraryDependencies += "io.codeworth" %% "PanelMatic" % "0.9.8"
+----
 
 
 === As a .jar File
