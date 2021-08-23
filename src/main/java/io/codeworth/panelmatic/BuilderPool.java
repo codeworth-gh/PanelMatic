@@ -14,7 +14,7 @@ import java.util.Set;
  */
 public class BuilderPool {
 	
-	private Set<WeakReference<PanelBuilder>> builders = new HashSet<WeakReference<PanelBuilder>>();
+	private final Set<WeakReference<PanelBuilder>> builders = new HashSet<WeakReference<PanelBuilder>>();
 
 	/**
 	 * Adds a builder to the pool.
@@ -29,7 +29,7 @@ public class BuilderPool {
 	 * @return a builder or {@code null}.
 	 */
 	public PanelBuilder get() {
-		List<WeakReference<PanelBuilder>> toRemove = new LinkedList<WeakReference<PanelBuilder>>();
+		List<WeakReference<PanelBuilder>> toRemove = new LinkedList<>();
 		PanelBuilder aBuilder = null;
 		for ( WeakReference<PanelBuilder> bRef : builders ) {
 			aBuilder = bRef.get();

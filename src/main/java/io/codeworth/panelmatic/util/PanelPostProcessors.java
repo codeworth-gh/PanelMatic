@@ -85,7 +85,7 @@ public class PanelPostProcessors {
 	 * @return the Wrapping {@code JScrollPane}.
 	 */
 	public static PanelPostProcessor wrapInScrollPane() {
-		return wrapInScrollPane( null );
+		return wrapInScrollPane( Boolean.TRUE );
 	}
 	
 	
