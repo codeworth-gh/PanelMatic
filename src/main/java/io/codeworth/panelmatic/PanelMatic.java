@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
 import io.codeworth.panelmatic.impl.gridbagpanelbuilder.GbPanelBuilderFactory;
+import java.lang.reflect.InvocationTargetException;
 
 /**
  * <p>
@@ -68,7 +69,16 @@ public class PanelMatic {
 	/** Localization bundle. May be {@code null}. */
 	private static ResourceBundle l10nBundle = null;
 
-	static {
+    
+    /**
+     * Auto-sets the builder factory: if the {@code PANEL_BUILDER_FACTORY_CLASS_PROPERTY} 
+     * is set, tries to instantiate the class it points to; Otherwise, uses a
+     * default implementation.
+     * 
+     * @see PanelMatic#PANEL_BUILDER_FACTORY_CLASS_PROPERTY
+     * @see GbPanelBuilderFactory
+     */
+	static void autosetBuilderFactory() {
 		boolean builderFactorySet = false;
 		
 		String factoryClassName = System.getProperty( PANEL_BUILDER_FACTORY_CLASS_PROPERTY );
@@ -76,7 +86,7 @@ public class PanelMatic {
 			try {
 				// attempt to load the factory
 				Class<? extends PanelBuilderFactory> factoryClass = (Class<? extends PanelBuilderFactory>)Class.forName( factoryClassName );
-				setBuilderFactory( factoryClass.newInstance() );
+				setBuilderFactory( factoryClass.getDeclaredConstructor().newInstance() );
 				builderFactorySet = true;
 				
 			} catch (InstantiationException ex) {
@@ -88,7 +98,13 @@ public class PanelMatic {
 			} catch (ClassNotFoundException ex) {
 				Logger.getLogger(PanelMatic.class.getName()).log(Level.SEVERE, 
 						"Panel builder factory class '" + factoryClassName + "' not found. ", ex);
-			}
+			} catch (NoSuchMethodException ex) {
+                Logger.getLogger(PanelMatic.class.getName()).log(Level.SEVERE, 
+                    "Panel builder factory class '" + factoryClassName + "' has no no-args constructor. ", ex);
+            } catch (SecurityException | IllegalArgumentException | InvocationTargetException ex) {
+                Logger.getLogger(PanelMatic.class.getName()).log(Level.SEVERE,
+                    "Panel builder factory class '" + factoryClassName + "' no-args constructor cannot be invoked: " + ex.getMessage(), ex);
+            }
 			
 		}
 		
@@ -182,6 +198,9 @@ public class PanelMatic {
 	private static PanelBuilder getBuilder() {
 		PanelBuilder b = builderPool.get();
 		if ( b == null ) {
+            if ( builderFactory == null ) {
+                autosetBuilderFactory();
+            }
 			b = builderFactory.build();
 			b.setBuilderPool(builderPool);
 		}
